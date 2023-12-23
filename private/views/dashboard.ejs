@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <button id="logout">Logout</button>
+    <script>
+        const logout = document.querySelector('#logout').addEventListener('click', (event) => {
+            event.preventDefault()
+            fetch('/auth/logout')
+                .then(res => res.json())
+                .then(res => location.href = res.redirectUrl)
+                .catch(error => alert(error.error))
+        })
+    </script>
+</body>
+</html>
