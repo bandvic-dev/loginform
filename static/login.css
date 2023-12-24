@@ -48,12 +48,17 @@
 
 .login-form__button {
     all: unset;
+    outline: initial;
     background: var(--dark-color);
     border: 1px solid var(--lite-color-1);
     border-radius: 5px;
     padding: 4px 8px;
     min-width: 50px;
     text-align: center;
+}
+
+.login-form__button:focus-within {
+    outline: auto;
 }
 
 #message {
