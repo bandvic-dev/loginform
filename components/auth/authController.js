@@ -1,4 +1,5 @@
 import User from './models/User.js'
+import Menu from '../menu/models/Menu.js'
 import Role from './models/Role.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
@@ -101,7 +102,8 @@ class authController {
     }
 
     async dashboard(req, res) {
-        res.render('dashboard')
+        const userMenu = await Menu.find()
+        res.render('dashboard', {userMenu})
     }
 }
 

@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import fileUpload from 'express-fileupload'
 import cookieParser from 'cookie-parser'
 import authRouter from './components/auth/authRouter.js'
+import menuRouter from './components/menu/menuRouter.js'
 import path from 'path'
 import dotenv from 'dotenv'
 import { fileURLToPath } from 'url';
@@ -24,6 +25,7 @@ app.set('views', [
   path.join(__dirname, 'private/views')
 ]);
 app.use('/auth', authRouter)
+app.use('/menu', menuRouter)
 
 app.get('*', (req, res) => res.status(404).render('error404'));
 
