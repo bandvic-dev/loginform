@@ -25,6 +25,8 @@ app.set('views', [
 ]);
 app.use('/auth', authRouter)
 
+app.get('*', (req, res) => res.status(404).render('error404'));
+
 app.use((err, req, res, next) => {
   console.error(err.stack)
   res.status(500).send('Что-то сломалось')

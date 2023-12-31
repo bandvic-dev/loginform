@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="/private/main.css">
 </head>
+
 <body>
-    <h1>Dashboard</h1>
-    <button id="logout">Logout</button>
-    <script>
-        const logout = document.querySelector('#logout').addEventListener('click', (event) => {
-            event.preventDefault()
-            fetch('/auth/logout')
-                .then(res => res.json())
-                .then(res => location.href = res.redirectUrl)
-                .catch(error => alert(error.error))
-        })
-    </script>
+    <div class="main-wrapper">
+        <main>
+            <h1>Dashboard</h1>
+            <button onclick="getRequest(event)" data-action="/auth/logout">Logout</button>
+        </main>
+    </div>
+
+    <script src="/main.js"></script>
+    <script src="/private/auth.js"></script>
 </body>
 </html>

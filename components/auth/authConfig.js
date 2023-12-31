@@ -3,7 +3,7 @@ import { check } from "express-validator"
 
 const {AUTH_TOKEN_SECRET} = dotenv.config().parsed
 
-export const config = {
+export const authConfig = {
     secret: AUTH_TOKEN_SECRET,
     expiresIn: '1h',
     rules: {

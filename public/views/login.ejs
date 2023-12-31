@@ -9,7 +9,11 @@
 </head>
 <body>
     <div class="login-form-wrapper">
-        <form id="formLogin" class="login-form" action="/auth/login" enctype="multipart/form-data" method="POST">
+        <form class="login-form" 
+            onsubmit="postRequest(event)" 
+            action="/auth/login" 
+            method="POST" 
+            enctype="multipart/form-data">
             <div class="login-form__title">
                 <h1>Sign In</h1>
             </div>
@@ -35,6 +39,7 @@
             <ul id="message"></ul>
         </form>
     </div>
-    <script src="/login.js"></script>
+    <script src="/main.js"></script>
+    <script src="/auth.js"></script>
 </body>
 </html>

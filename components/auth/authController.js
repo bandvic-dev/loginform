@@ -3,7 +3,7 @@ import Role from './models/Role.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { validationResult } from 'express-validator'
-import { config } from './config.js'
+import { authConfig } from './authConfig.js'
 
 const generateAccessToken = (id, roles) => {
     const payload = {
@@ -11,7 +11,7 @@ const generateAccessToken = (id, roles) => {
         roles
     }
 
-    return jwt.sign(payload, config.secret, {expiresIn: config.expiresIn})
+    return jwt.sign(payload, authConfig.secret, {expiresIn: authConfig.expiresIn})
 }
 
 class authController {
@@ -63,7 +63,7 @@ class authController {
             }
 
             const token = generateAccessToken(user._id, user.roles)
-            res.cookie('auth', token, { maxAge: 150000, httpOnly: true })
+            res.cookie('auth', token, { maxAge: 9000000, httpOnly: true })
 
             return res.json({ok: true, message: 'Login seccess', redirectUrl: '/auth/dashboard', token})
 
@@ -100,7 +100,7 @@ class authController {
 
     }
 
-    dashboard(req, res) {
+    async dashboard(req, res) {
         res.render('dashboard')
     }
 }
