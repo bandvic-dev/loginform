@@ -7,3 +7,6 @@ Before start create .env from env.example and use your mongodb connection and wr
 - `npm i` - download dependenses
 - `npm run dev` - start dev project
 - `npm start` - start project
+
+When go to `http://localhost:3000/auth`
+You need create first user in db use {name: "admin", password: "admin", role: "ADMIN"}

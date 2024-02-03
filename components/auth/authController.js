@@ -65,7 +65,7 @@ class authController {
             const token = generateAccessToken(user._id, user.roles)
             res.cookie('auth', token, { maxAge: 9000000, httpOnly: true })
 
-            return res.json({ok: true, message: 'Login seccess', redirectUrl: '/auth/dashboard', token})
+            return res.json({ok: true, message: 'Login success', redirectUrl: '/auth/dashboard', token})
 
         } catch (error) {
             res.status(400).json({message: 'Login Error'})
@@ -97,7 +97,6 @@ class authController {
         }
 
         res.redirect('/auth/dashboard')
-
     }
 
     async dashboard(req, res) {
