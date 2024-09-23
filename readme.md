@@ -1,4 +1,4 @@
-# Simple Login form use express, jwt, cockies, mongodb
+# Simple Login form use express, jwt, cookies, mongodb
 
 ## Start Project
 
